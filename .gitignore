@@ -1,1 +1,5 @@
 myvenv/
+
+nochart/__pycache__/
+mystock/__pycache__/
+mystock/migrations

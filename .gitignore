@@ -1,5 +1,6 @@
 myvenv/
 
 nochart/__pycache__/
+nochart/my_settings.py
 mystock/__pycache__/
 mystock/migrations

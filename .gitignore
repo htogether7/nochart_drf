@@ -1,6 +1,9 @@
 myvenv/
 
 nochart/__pycache__/
-nochart/my_settings.py
+nochart/secret.py
+
 mystock/__pycache__/
 mystock/migrations
+
+node_modules/

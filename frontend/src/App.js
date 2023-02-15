@@ -7,10 +7,11 @@ import Main from "./pages/Main";
 import Detail from "./pages/Detail";
 function App() {
   // const [stocks, setStocks] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   return (
     <div className="App">
-      <Header />
+      <Header searchText={searchText} setSearchText={setSearchText} />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/stock/:symbol" element={<Detail />} />

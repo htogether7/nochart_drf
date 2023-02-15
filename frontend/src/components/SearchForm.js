@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SearchForm = () => {
+const SearchForm = ({ searchText, setSearchText }) => {
   const navigate = useNavigate();
-  const [searchText, setSearchText] = useState("");
 
   const handleSubmit = () => {
     navigate(`/stock/${searchText.toUpperCase()}`);
@@ -16,7 +15,7 @@ const SearchForm = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <input onChange={handleChange}></input>
+      <input onChange={handleChange} value={searchText}></input>
       <button type="submit">검색</button>
     </form>
   );

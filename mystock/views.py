@@ -4,11 +4,12 @@ from rest_framework import viewsets, permissions, generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
+from rest_framework.generics import get_object_or_404
 from .serializers import StocktblSerializer
 # Create your views here.
 
 @api_view(['GET'])
-def stock_view(request):
-    stocks = Stocktbl.objects.all()
-    serializer = StocktblSerializer(stocks, many=True)
+def stock_detail(request, corp_name):
+    stock = get_object_or_404(Stocktbl, symbol=corp_name)
+    serializer = StocktblSerializer(stock)
     return Response(serializer.data, status = status.HTTP_200_OK)

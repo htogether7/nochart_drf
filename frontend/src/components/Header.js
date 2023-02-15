@@ -1,17 +1,17 @@
 import React from "react";
 import "./Header.css";
+import SearchForm from "./SearchForm";
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <header>
       <h2>
-        <a href="/">노차트</a>
+        <Link to="/">노차트</Link>
       </h2>
       <ul>
         <li>
-          <form>
-            <input></input>
-            <button type="submit">검색</button>
-          </form>
+          <SearchForm />
         </li>
         <li>?</li>
       </ul>

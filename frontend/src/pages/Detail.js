@@ -5,14 +5,25 @@ const Detail = () => {
   // console.log(÷)
   const params = useParams();
   const [stockData, setStockData] = useState({});
+  const [news, setNews] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/stock/${params.symbol.toUpperCase()}`)
-      .then((response) => {
-        if (response) {
-          setStockData(response.data);
-        }
-      });
+      .all([
+        axios.get(
+          `http://localhost:8000/api/stock/${params.symbol.toUpperCase()}`
+        ),
+        axios.get(
+          `http://localhost:8000/api/news/${params.symbol.toUpperCase()}`
+        ),
+      ])
+      .then(
+        axios.spread((stock, news) => {
+          if (stock) {
+            setStockData(stock.data);
+            setNews(news.data);
+          }
+        })
+      );
   }, []);
   // useEffect(() => {
   //   axios
@@ -25,8 +36,7 @@ const Detail = () => {
     <h1>다시 검색해주세요.</h1>
   ) : (
     <div>
-      <h1>회사명 : {`${stockData.name} (${stockData.symbol})`}</h1>
-      <h1>산업 : {stockData.industry}</h1>
+      <h1>{`${stockData.name} (${stockData.symbol})`}</h1>
     </div>
   );
 };

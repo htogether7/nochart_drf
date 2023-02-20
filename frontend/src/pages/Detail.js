@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import NewsContainer from "../components/NewsContainer";
 const Detail = () => {
   // console.log(÷)
   const params = useParams();
@@ -37,6 +38,7 @@ const Detail = () => {
   ) : (
     <div>
       <h1>{`${stockData.name} (${stockData.symbol})`}</h1>
+      <NewsContainer stockData={stockData} news={news} />
     </div>
   );
 };

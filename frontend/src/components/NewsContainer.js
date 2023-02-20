@@ -1,11 +1,18 @@
 import React from "react";
 import NewsCard from "./NewsCard";
 
-const NewsContainer = () => {
+const NewsContainer = ({ news }) => {
   return (
-    <div>
-      <NewsCard />
-    </div>
+    <ul>
+      {news.map((card) => (
+        <NewsCard
+          title={card.title}
+          author={card.author}
+          link={card.link}
+          key={card.article_id}
+        />
+      ))}
+    </ul>
   );
 };
 

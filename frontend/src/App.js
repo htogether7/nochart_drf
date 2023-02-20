@@ -8,13 +8,20 @@ import Detail from "./pages/Detail";
 function App() {
   // const [stocks, setStocks] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [myStock, setMyStock] = useState([]);
+
+  useEffect(() => {
+    const initialMyStock = localStorage.getItem("myStock");
+    const initialMyStockArr = JSON.parse(initialMyStock);
+    setMyStock(initialMyStockArr);
+  }, []);
 
   return (
     <div className="App">
       <Header searchText={searchText} setSearchText={setSearchText} />
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/stock/:symbol" element={<Detail />} />
+        <Route path="/" element={<Main myStock={myStock} />} />
+        <Route path="/stock/:symbol" element={<Detail myStock={myStock} />} />
       </Routes>
       {/* <ul>
         {stocks.map((item) => (

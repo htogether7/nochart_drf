@@ -2,11 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import NewsContainer from "../components/NewsContainer";
-const Detail = () => {
+import Title from "../components/Title";
+const Detail = ({ myStock }) => {
   // console.log(÷)
   const params = useParams();
   const [stockData, setStockData] = useState({});
   const [news, setNews] = useState([]);
+  const [isInMyStock, setIsInMyStock] = useState(false);
+
+  useEffect(() => {
+    if (myStock.includes(params.symbol)) {
+      setIsInMyStock(true);
+    }
+  }, [myStock, params.symbol]);
+
   useEffect(() => {
     axios
       .all([
@@ -37,7 +46,12 @@ const Detail = () => {
     <h1>다시 검색해주세요.</h1>
   ) : (
     <div>
-      <h1>{`${stockData.name} (${stockData.symbol})`}</h1>
+      <Title
+        name={stockData.name}
+        symbol={stockData.symbol}
+        isInMyStock={isInMyStock}
+        setIsInMyStock={setIsInMyStock}
+      />
       <NewsContainer stockData={stockData} news={news} />
     </div>
   );

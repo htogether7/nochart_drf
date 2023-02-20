@@ -1,6 +1,6 @@
 import React from "react";
 
-const Main = () => {
+const Main = ({ myStock }) => {
   return (
     <div>
       <h1>홈</h1>

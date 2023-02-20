@@ -22,7 +22,7 @@ const Detail = () => {
   //   console.log(params);
 
   return Object.keys(stockData).length === 0 ? (
-    <div>다시 검색해주세요.</div>
+    <h1>다시 검색해주세요.</h1>
   ) : (
     <div>
       <h1>회사명 : {`${stockData.name} (${stockData.symbol})`}</h1>

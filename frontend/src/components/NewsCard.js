@@ -8,7 +8,7 @@ const NewsCard = ({ title, author, link }) => {
       <div className="infoCard">
         <div>{author}</div>
         <div>
-          <a className="newsLink" href={link} rel="noreferrer">
+          <a className="newsLink" href={link} rel="noreferrer" target="_blank">
             Investing.com
           </a>
         </div>

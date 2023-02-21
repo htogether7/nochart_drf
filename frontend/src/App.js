@@ -9,19 +9,33 @@ function App() {
   // const [stocks, setStocks] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [myStock, setMyStock] = useState([]);
+  const [myStockLength, setMyStockLength] = useState(0);
 
   useEffect(() => {
     const initialMyStock = localStorage.getItem("myStock");
     const initialMyStockArr = JSON.parse(initialMyStock);
     setMyStock(initialMyStockArr);
-  }, []);
+    setMyStockLength(myStock.length);
+  }, [myStock.length]);
 
   return (
     <div className="App">
       <Header searchText={searchText} setSearchText={setSearchText} />
       <Routes>
-        <Route path="/" element={<Main myStock={myStock} />} />
-        <Route path="/stock/:symbol" element={<Detail myStock={myStock} />} />
+        <Route
+          path="/"
+          element={<Main myStock={myStock} myStockLength={myStockLength} />}
+        />
+        <Route
+          path="/stock/:symbol"
+          element={
+            <Detail
+              myStock={myStock}
+              myStockLength={myStockLength}
+              setMyStockLength={setMyStockLength}
+            />
+          }
+        />
       </Routes>
       {/* <ul>
         {stocks.map((item) => (

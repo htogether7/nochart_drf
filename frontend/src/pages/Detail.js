@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import NewsContainer from "../components/NewsContainer";
 import Title from "../components/Title";
-const Detail = ({ myStock }) => {
+const Detail = ({ myStock, myStockLength, setMyStockLength }) => {
   // console.log(÷)
   const params = useParams();
   const [stockData, setStockData] = useState({});
@@ -11,7 +11,7 @@ const Detail = ({ myStock }) => {
   const [isInMyStock, setIsInMyStock] = useState(false);
 
   useEffect(() => {
-    if (myStock.includes(params.symbol)) {
+    if (myStock && myStock.includes(params.symbol)) {
       setIsInMyStock(true);
     }
   }, [myStock, params.symbol]);
@@ -51,6 +51,8 @@ const Detail = ({ myStock }) => {
         symbol={stockData.symbol}
         isInMyStock={isInMyStock}
         setIsInMyStock={setIsInMyStock}
+        myStockLength={myStockLength}
+        setMyStockLength={setMyStockLength}
       />
       <NewsContainer stockData={stockData} news={news} />
     </div>

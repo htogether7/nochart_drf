@@ -34,7 +34,7 @@ const Detail = ({ myStock, myStockLength, setMyStockLength }) => {
           }
         })
       );
-  }, []);
+  }, [params.symbol]);
   // useEffect(() => {
   //   axios
   //     .get("http://localhost:8000/api")

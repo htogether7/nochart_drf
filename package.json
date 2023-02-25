@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/htogether7/nochart_drf/issues"
   },
-  "homepage": "https://github.com/htogether7/nochart_drf#readme",
+  "homepage": "https://github.com/htogether7/nochart_drf",
   "dependencies": {
     "create-react-app": "^5.0.1"
   }

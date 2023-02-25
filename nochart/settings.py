@@ -65,6 +65,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
+    'https://htogether7.github.io',
 )
 
 ROOT_URLCONF = 'nochart.urls'

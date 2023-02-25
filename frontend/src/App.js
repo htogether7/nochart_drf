@@ -15,8 +15,10 @@ function App() {
     const initialMyStock = localStorage.getItem("myStock");
     const initialMyStockArr = JSON.parse(initialMyStock);
     setMyStock(initialMyStockArr);
-    setMyStockLength(myStock.length);
-  }, [myStock.length]);
+    if (myStock) {
+      setMyStockLength(myStock.length);
+    }
+  }, []);
 
   return (
     <div className="App">

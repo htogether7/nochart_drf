@@ -20,10 +20,10 @@ const Detail = ({ myStock, myStockLength, setMyStockLength }) => {
     axios
       .all([
         axios.get(
-          `http://localhost:8000/api/stock/${params.symbol.toUpperCase()}`
+          `https://htogether7.pythonanywhere.com/api/stock/${params.symbol.toUpperCase()}`
         ),
         axios.get(
-          `http://localhost:8000/api/news/${params.symbol.toUpperCase()}`
+          `https://htogether7.pythonanywhere.com/api/news/${params.symbol.toUpperCase()}`
         ),
       ])
       .then(

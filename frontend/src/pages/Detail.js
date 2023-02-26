@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import NewsContainer from "../components/NewsContainer";
 import Title from "../components/Title";
-const Detail = ({ myStock, myStockLength, setMyStockLength }) => {
+const Detail = ({ myStock, myStockLength, setMyStockLength, setMyStock }) => {
   // console.log(÷)
   const params = useParams();
   const [stockData, setStockData] = useState({});
@@ -53,6 +53,7 @@ const Detail = ({ myStock, myStockLength, setMyStockLength }) => {
         setIsInMyStock={setIsInMyStock}
         myStockLength={myStockLength}
         setMyStockLength={setMyStockLength}
+        setMyStock={setMyStock}
       />
       <NewsContainer stockData={stockData} news={news} />
     </div>

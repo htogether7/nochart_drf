@@ -15,10 +15,15 @@ function App() {
     const initialMyStock = localStorage.getItem("myStock");
     const initialMyStockArr = JSON.parse(initialMyStock);
     setMyStock(initialMyStockArr);
-    if (myStock) {
-      setMyStockLength(myStock.length);
-    }
-  }, []);
+    // if (myStock) {
+    setMyStockLength(myStock.length);
+    // } else {
+    //   if (initialMyStock) {
+    //     setMyStockLength(myStock.length)
+    //   }
+      // setMy
+    // }
+  }, [myStock.length]);
 
   return (
     <div className="App">
@@ -26,7 +31,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Main myStock={myStock} myStockLength={myStockLength} />}
+          element={<Main myStock={myStock} myStockLength={myStockLength} setMyStock={setMyStock} />}
         />
         <Route
           path="/stock/:symbol"
@@ -35,6 +40,7 @@ function App() {
               myStock={myStock}
               myStockLength={myStockLength}
               setMyStockLength={setMyStockLength}
+              setMyStock={setMyStock}
             />
           }
         />

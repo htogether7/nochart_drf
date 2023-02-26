@@ -9,6 +9,7 @@ const Title = ({
   setIsInMyStock,
   myStockLength,
   setMyStockLength,
+  setMyStock
 }) => {
   return (
     <div className="titleContainer">
@@ -23,6 +24,7 @@ const Title = ({
         setIsInMyStock={setIsInMyStock}
         myStockLength={myStockLength}
         setMyStockLength={setMyStockLength}
+        setMyStock={setMyStock}
       />
     </div>
   );

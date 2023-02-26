@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-const Main = ({ myStock, myStockLength }) => {
-  useEffect(() => {}, []);
+const Main = ({ myStock, myStockLength, setMyStock }) => {
+  // useEffect(() => {
+  //   const myStock = localStorage.getItem("myStock");
+  //   let myStockArr = JSON.parse(myStock);
+  //   setMyStock(myStockArr)
+  // }, [setMyStock]);
+
   return (
     <div>
       <ul>

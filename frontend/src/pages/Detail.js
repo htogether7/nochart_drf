@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import NewsContainer from "../components/NewsContainer";
 import Title from "../components/Title"; 
+import './Detail.css';
 const Detail = ({ myStock, myStockLength, setMyStockLength, setMyStock, symbol, setSymbol}) => {
   const params = useParams();
   const navigate = useNavigate();
@@ -41,9 +42,9 @@ const Detail = ({ myStock, myStockLength, setMyStockLength, setMyStock, symbol, 
           navigate('/')
         });
     }
-  }, [params.symbol, setSymbol]);
+  }, [params.symbol, setSymbol, navigate]);
 
-  return   (<div>
+  return   (<div className='detailContainer'>
       <Title
         name={stockData.name}
         symbol={stockData.symbol}

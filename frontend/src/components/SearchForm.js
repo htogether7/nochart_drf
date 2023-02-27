@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SearchForm = ({ searchText, setSearchText }) => {
+const SearchForm = ({ searchText, setSearchText, setSymbol }) => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    navigate(`/stock/${searchText.toUpperCase()}`);
+    setSymbol(searchText.toUpperCase())
+    navigate(`/${searchText.toUpperCase()}`);
     // e.preventDefault();
     // console.log("submit!");
   };

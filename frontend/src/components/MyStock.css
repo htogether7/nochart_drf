@@ -1,0 +1,9 @@
+.stockList {
+    border-right: 1px black solid;
+    height: 100;
+}
+
+ul {
+    padding-left: 20px;
+    padding-right: 20px;
+}

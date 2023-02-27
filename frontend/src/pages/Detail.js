@@ -1,51 +1,49 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import NewsContainer from "../components/NewsContainer";
-import Title from "../components/Title";
-const Detail = ({ myStock, myStockLength, setMyStockLength, setMyStock }) => {
-  // console.log(÷)
+import Title from "../components/Title"; 
+const Detail = ({ myStock, myStockLength, setMyStockLength, setMyStock, symbol, setSymbol}) => {
   const params = useParams();
+  const navigate = useNavigate();
   const [stockData, setStockData] = useState({});
   const [news, setNews] = useState([]);
   const [isInMyStock, setIsInMyStock] = useState(false);
-
+  // console.log(params)
   useEffect(() => {
     if (myStock && myStock.includes(params.symbol)) {
       setIsInMyStock(true);
+    } else {
+      setIsInMyStock(false);
     }
   }, [myStock, params.symbol]);
 
   useEffect(() => {
-    axios
-      .all([
-        axios.get(
-          `https://htogether7.pythonanywhere.com/api/stock/${params.symbol.toUpperCase()}`
-        ),
-        axios.get(
-          `https://htogether7.pythonanywhere.com/api/news/${params.symbol.toUpperCase()}`
-        ),
-      ])
-      .then(
-        axios.spread((stock, news) => {
-          if (stock) {
-            setStockData(stock.data);
-            setNews(news.data);
-          }
-        })
-      );
-  }, [params.symbol]);
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:8000/api")
-  //     .then((response) => setStocks(response.data));
-  // }, []);
-  //   console.log(params);
+    if (params.symbol) {
+      axios
+        .all([
+          axios.get(
+            `https://htogether7.pythonanywhere.com/api/stock/${params.symbol.toUpperCase()}`
+          ),
+          axios.get(
+            `https://htogether7.pythonanywhere.com/api/news/${params.symbol.toUpperCase()}`
+          ),
+        ])
+        .then(
+          axios.spread((stock, news) => {
+            if (stock) {
+              setStockData(stock.data);
+              setNews(news.data);
+            }
+          })
+        ).catch(err => {
+          setSymbol("");
+          navigate('/')
+        });
+    }
+  }, [params.symbol, setSymbol]);
 
-  return Object.keys(stockData).length === 0 ? (
-    <h1>다시 검색해주세요.</h1>
-  ) : (
-    <div>
+  return   (<div>
       <Title
         name={stockData.name}
         symbol={stockData.symbol}
@@ -56,8 +54,7 @@ const Detail = ({ myStock, myStockLength, setMyStockLength, setMyStock }) => {
         setMyStock={setMyStock}
       />
       <NewsContainer stockData={stockData} news={news} />
-    </div>
-  );
+    </div>)
 };
 
 export default Detail;

@@ -3,9 +3,10 @@ import "./Header.css";
 import SearchForm from "./SearchForm";
 import { Link } from "react-router-dom";
 
-const Header = ({ searchText, setSearchText }) => {
+const Header = ({ searchText, setSearchText, setSymbol }) => {
   const handleClick = () => {
     setSearchText("");
+    setSymbol("")
   };
   return (
     <header>
@@ -14,12 +15,8 @@ const Header = ({ searchText, setSearchText }) => {
           노차트
         </Link>
       </h2>
-      <ul>
-        <li>
-          <SearchForm searchText={searchText} setSearchText={setSearchText} />
-        </li>
-        <li>?</li>
-      </ul>
+      <SearchForm searchText={searchText} setSearchText={setSearchText} setSymbol={setSymbol}/>
+
     </header>
   );
 };

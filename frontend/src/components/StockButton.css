@@ -1,0 +1,15 @@
+.stockButton {
+    border: 1px black solid;
+    margin-top: 10%;
+}
+
+.stockButton:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 20px #ddd;
+}
+
+
+.stockLink {
+    text-decoration: none;
+    color: black;
+}

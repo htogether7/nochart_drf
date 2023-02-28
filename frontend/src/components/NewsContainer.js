@@ -1,19 +1,23 @@
 import React from "react";
 import NewsCard from "./NewsCard";
-import './NewsContainer.css';
+import "./NewsContainer.css";
 
 const NewsContainer = ({ news }) => {
   return (
-    <div className='newsContainer'>
+    <div className="newsContainer">
       <ul>
-        {news.map((card) => (
-          <NewsCard
-            title={card.title}
-            author={card.author}
-            link={card.link}
-            key={card.article_id}
-          />
-        ))}
+        {news.length > 0 ? (
+          news.map((card) => (
+            <NewsCard
+              title={card.title}
+              author={card.author}
+              link={card.link}
+              key={card.article_id}
+            />
+          ))
+        ) : (
+          <div>뉴스가 없습니다.</div>
+        )}
       </ul>
     </div>
   );

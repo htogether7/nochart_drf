@@ -1,7 +1,13 @@
 import React from "react";
-import MainContainer from '../components/MainContainer';
-const Main = ({ myStock, myStockLength, setMyStock,setMyStockLength, symbol, setSymbol}) => {
-
+import MainContainer from "../components/MainContainer";
+const Main = ({
+  myStock,
+  myStockLength,
+  setMyStock,
+  setMyStockLength,
+  symbol,
+  setSymbol,
+}) => {
   // useEffect(() => {
   //   const myStock = localStorage.getItem("myStock");
   //   let myStockArr = JSON.parse(myStock);
@@ -11,7 +17,14 @@ const Main = ({ myStock, myStockLength, setMyStock,setMyStockLength, symbol, set
   // useEffect(() => {}, [])
 
   return (
-    <MainContainer myStock={myStock} myStockLength={myStockLength} setMyStockLength={setMyStockLength} setMyStock={setMyStock} symbol={symbol} setSymbol={setSymbol}/>
+    <MainContainer
+      myStock={myStock}
+      myStockLength={myStockLength}
+      setMyStockLength={setMyStockLength}
+      setMyStock={setMyStock}
+      symbol={symbol}
+      setSymbol={setSymbol}
+    />
   );
 };
 

@@ -2,9 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import NewsContainer from "../components/NewsContainer";
-import Title from "../components/Title"; 
-import './Detail.css';
-const Detail = ({ myStock, myStockLength, setMyStockLength, setMyStock, symbol, setSymbol}) => {
+import Title from "../components/Title";
+import "./Detail.css";
+const Detail = ({
+  myStock,
+  myStockLength,
+  setMyStockLength,
+  setMyStock,
+  symbol,
+  setSymbol,
+}) => {
   const params = useParams();
   const navigate = useNavigate();
   const [stockData, setStockData] = useState({});
@@ -37,14 +44,16 @@ const Detail = ({ myStock, myStockLength, setMyStockLength, setMyStock, symbol, 
               setNews(news.data);
             }
           })
-        ).catch(err => {
+        )
+        .catch((err) => {
           setSymbol("");
-          navigate('/')
+          navigate("/");
         });
     }
   }, [params.symbol, setSymbol, navigate]);
 
-  return   (<div className='detailContainer'>
+  return (
+    <div className="detailContainer">
       <Title
         name={stockData.name}
         symbol={stockData.symbol}
@@ -55,7 +64,8 @@ const Detail = ({ myStock, myStockLength, setMyStockLength, setMyStock, symbol, 
         setMyStock={setMyStock}
       />
       <NewsContainer stockData={stockData} news={news} />
-    </div>)
+    </div>
+  );
 };
 
 export default Detail;

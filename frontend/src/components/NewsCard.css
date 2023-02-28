@@ -8,6 +8,7 @@
     align-items: center;
 }
 
+
 .infoCard {
     display: flex;
     justify-content: space-around;
@@ -17,4 +18,10 @@
 
 .newsLink {
     text-decoration : none;
+    color: black;
+}
+
+.newsLinkButton:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 20px #ddd;
 }

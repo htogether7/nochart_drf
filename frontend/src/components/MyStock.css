@@ -1,8 +1,10 @@
 .stockList {
     border-right: 1px black solid;
+    border-bottom: 1px black solid;
     height: 100;
     padding-left: 10px;
     padding-right: 10px;
+    width: 15%;
 }
 
 ul {

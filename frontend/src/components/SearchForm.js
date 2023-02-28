@@ -5,7 +5,7 @@ const SearchForm = ({ searchText, setSearchText, setSymbol }) => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    setSymbol(searchText.toUpperCase())
+    setSymbol(searchText.toUpperCase());
     navigate(`/${searchText.toUpperCase()}`);
     // e.preventDefault();
     // console.log("submit!");

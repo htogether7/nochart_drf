@@ -7,7 +7,6 @@ import Main from "./pages/Main";
 import Detail from "./pages/Detail";
 function App() {
   // const [stocks, setStocks] = useState([]);
-  // const params = useParams();
   const [searchText, setSearchText] = useState("");
   const [myStock, setMyStock] = useState([]);
   const [myStockLength, setMyStockLength] = useState(0);
@@ -23,24 +22,46 @@ function App() {
     //   if (initialMyStock) {
     //     setMyStockLength(myStock.length)
     //   }
-      // setMy
+    // setMy
     // }
   }, [myStock.length]);
 
   return (
     <div className="App">
-      <Header searchText={searchText} setSearchText={setSearchText} setSymbol={setSymbol}/>
+      <Header
+        searchText={searchText}
+        setSearchText={setSearchText}
+        setSymbol={setSymbol}
+      />
       <Routes>
         <Route
           path="/"
-          element={<Main myStock={myStock} myStockLength={myStockLength} setMyStock={setMyStock} setMyStockLength = {setMyStockLength} symbol={symbol} setSymbol={setSymbol} />}
+          element={
+            <Main
+              myStock={myStock}
+              myStockLength={myStockLength}
+              setMyStock={setMyStock}
+              setMyStockLength={setMyStockLength}
+              symbol={symbol}
+              setSymbol={setSymbol}
+            />
+          }
         />
 
         <Route
           path="/:symbol"
-          element={<Main myStock={myStock} myStockLength={myStockLength} setMyStock={setMyStock} setMyStockLength = {setMyStockLength} symbol={symbol} setSymbol={setSymbol}/>}
+          element={
+            <Main
+              myStock={myStock}
+              myStockLength={myStockLength}
+              setMyStock={setMyStock}
+              setMyStockLength={setMyStockLength}
+              symbol={symbol}
+              setSymbol={setSymbol}
+            />
+          }
         />
-        
+
         {/* <Route
           path="/stock/:symbol"
           element={

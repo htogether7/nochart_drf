@@ -6,17 +6,20 @@ import { Link } from "react-router-dom";
 const Header = ({ searchText, setSearchText, setSymbol }) => {
   const handleClick = () => {
     setSearchText("");
-    setSymbol("")
+    setSymbol("");
   };
   return (
     <header>
       <h2>
-        <Link to="/" onClick={handleClick}>
+        <Link to="/" onClick={handleClick} className="toHome">
           노차트
         </Link>
       </h2>
-      <SearchForm searchText={searchText} setSearchText={setSearchText} setSymbol={setSymbol}/>
-
+      <SearchForm
+        searchText={searchText}
+        setSearchText={setSearchText}
+        setSymbol={setSymbol}
+      />
     </header>
   );
 };

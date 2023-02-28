@@ -6,7 +6,7 @@ const AddButton = ({
   setIsInMyStock,
   myStockLength,
   setMyStockLength,
-  setMyStock
+  setMyStock,
 }) => {
   const handleClick = () => {
     if (localStorage.getItem("myStock")) {

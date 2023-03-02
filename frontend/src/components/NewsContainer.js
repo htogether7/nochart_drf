@@ -4,7 +4,7 @@ import "./NewsContainer.css";
 
 const NewsContainer = ({ news }) => {
   return (
-    <div className="newsContainer">
+    <article className="newsContainer">
       <ul>
         {news.length > 0 ? (
           news.map((card) => (
@@ -19,7 +19,7 @@ const NewsContainer = ({ news }) => {
           <div>뉴스가 없습니다.</div>
         )}
       </ul>
-    </div>
+    </article>
   );
 };
 

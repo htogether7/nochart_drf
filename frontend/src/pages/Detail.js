@@ -53,7 +53,7 @@ const Detail = ({
   }, [params.symbol, setSymbol, navigate]);
 
   return (
-    <div className="detailContainer">
+    <section className="detailContainer">
       <Title
         name={stockData.name}
         symbol={stockData.symbol}
@@ -64,7 +64,7 @@ const Detail = ({
         setMyStock={setMyStock}
       />
       <NewsContainer stockData={stockData} news={news} />
-    </div>
+    </section>
   );
 };
 

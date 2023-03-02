@@ -4,7 +4,7 @@ import StockButton from "./StockButton";
 
 const MyStock = ({ myStock, myStockLength }) => {
   return (
-    <div className="stockList">
+    <aside className="stockList">
       <div>내 주식</div>
       <ul>
         {myStockLength === 0
@@ -15,7 +15,7 @@ const MyStock = ({ myStock, myStockLength }) => {
               </li>
             ))}
       </ul>
-    </div>
+    </aside>
   );
 };
 
